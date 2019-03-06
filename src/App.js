@@ -4,6 +4,8 @@ import {Checkbox, Input, Button, Spin} from 'antd';
 import * as _ from 'lodash';
 import * as axios from 'axios';
 
+const base_url = "http://3.17.142.117:4000"
+
 class App extends Component {
 
   constructor(){
@@ -22,7 +24,7 @@ class App extends Component {
   }
 
   loadTasks = () => {
-    axios.get('http://localhost:4000/tasks')
+    axios.get('http://3.17.142.117:4000/tasks')
     .then( response => {
       this.setState({tasks: response.data });
       this.hideLoader();
@@ -55,7 +57,7 @@ class App extends Component {
 
       this.showLoader();
       const new_status = tasks[index].status === 0 ? 1 : 0;
-      axios.patch(`http://localhost:4000/tasks/${id}`, {status : new_status})
+      axios.patch(`http://3.17.142.117:4000/tasks/${id}`, {status : new_status})
       .then(response => {
 
         tasks[index].status = new_status;
@@ -77,7 +79,7 @@ class App extends Component {
     this.showLoader();
     
     if(newTask && newTask !== '') {
-      axios.post('http://localhost:4000/tasks', {name: newTask})
+      axios.post('http://3.17.142.117:4000/tasks', {name: newTask})
       .then(response => {
         tasks.push(response.data);
         this.setState({tasks: tasks, newTask: null});
@@ -98,7 +100,7 @@ class App extends Component {
     if(index !== -1){
       this.showLoader();
 
-      axios.delete(`http://localhost:4000/tasks/${id}`)
+      axios.delete(`http://3.17.142.117:4000/tasks/${id}`)
       .then(response => {
         
         tasks.splice(index, 1);
