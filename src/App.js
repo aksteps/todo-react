@@ -173,13 +173,13 @@ class App extends Component {
               <Button disabled={!newTask || newTask == ''} onClick={this.addTask} >Add</Button>
           </Button.Group>
           <Row>
-            <Col span={12} xs={24}>
+            <Col lg={12} xs={24}>
             <div class="task-list">
                 <h2>Active</h2>
                 {this.renderTasks(active)}
               </div>
             </Col>
-            <Col span={12} xs={24}>
+            <Col lg={12} xs={24}>
             <div class="task-list completed-tasks">
                 <h2>Completed</h2>
                 {this.renderTasks(completed)}
