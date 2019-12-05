@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Checkbox, Input, Button, Spin} from 'antd';
+import {Checkbox, Input, Button, Spin, Icon} from 'antd';
 import * as _ from 'lodash';
 import * as axios from 'axios';
 
