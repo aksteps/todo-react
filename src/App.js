@@ -85,7 +85,7 @@ class App extends Component {
       axios.post(`${base_url}/tasks`, {name: newTask})
       .then(response => {
         // tasks.push(response.data);
-        // this.setState({tasks: tasks, newTask: null});
+        this.setState({ newTask: null});
         // this.hideLoader();
         this.loadTasks();
       })
