@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   loadTasks = () => {
+    this.showLoader();
     axios.get(`${base_url}/tasks`)
     .then( response => {
       this.setState({tasks: response.data });
@@ -60,12 +61,14 @@ class App extends Component {
       axios.patch(`${base_url}/tasks/${id}`, {status : new_status})
       .then(response => {
 
-        tasks[index].status = new_status;
-        this.setState({tasks: tasks});
-        this.hideLoader();
+        // tasks[index].status = new_status;
+        // this.setState({tasks: tasks});
+        // this.hideLoader();
+        this.loadTasks();
       })
       .catch(error => {
-        this.hideLoader();
+        // this.hideLoader();
+        this.loadTasks();
       });
     }
 
@@ -81,12 +84,14 @@ class App extends Component {
     if(newTask && newTask !== '') {
       axios.post(`${base_url}/tasks`, {name: newTask})
       .then(response => {
-        tasks.push(response.data);
-        this.setState({tasks: tasks, newTask: null});
-        this.hideLoader();
+        // tasks.push(response.data);
+        // this.setState({tasks: tasks, newTask: null});
+        // this.hideLoader();
+        this.loadTasks();
       })
       .catch(error => {
-        this.hideLoader();
+        // this.hideLoader();
+        this.loadTasks();
       })
     }
     
@@ -103,13 +108,15 @@ class App extends Component {
       axios.delete(`${base_url}/tasks/${id}`)
       .then(response => {
         
-        tasks.splice(index, 1);
-        this.setState({tasks: tasks});
-        this.hideLoader();
+        // tasks.splice(index, 1);
+        // this.setState({tasks: tasks});
+        // this.hideLoader();
+        this.loadTasks();
 
       }).catch(error => {
 
-        this.hideLoader();
+        // this.hideLoader();
+        this.loadTasks();
 
       });
     }
