@@ -160,6 +160,7 @@ class App extends Component {
           style={{ margin: "20px", width: "250px"}}>
 
           </Input.Search>
+          <Button onClick={this.loadTasks}><Icon type="reload" /></Button>
           <div class="task-lists-container" >
               <div class="task-list">
                 <h2>Active</h2>
