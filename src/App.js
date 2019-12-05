@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Checkbox, Input, Button, Spin, Icon} from 'antd';
+import {Checkbox, Input, Button, Spin, Icon, Row, Col} from 'antd';
 import * as _ from 'lodash';
 import * as axios from 'axios';
 
@@ -168,18 +168,21 @@ class App extends Component {
 
           </Input.Search>
           <Button onClick={this.loadTasks}><Icon type="reload" /></Button>
-          <div class="task-lists-container" >
-              <div class="task-list">
+          <Row>
+            <Col span={12}>
+            <div class="task-list">
                 <h2>Active</h2>
                 {this.renderTasks(active)}
               </div>
-              
-              <div class="task-list completed-tasks">
+            </Col>
+            <Col span={12}>
+            <div class="task-list completed-tasks">
                 <h2>Completed</h2>
                 {this.renderTasks(completed)}
               </div>
-          </div>
-        
+            </Col>
+          </Row>
+          
           <Button.Group>
               <Input style={{ width: 250 }} placeholder="Add a task" allowClear value={this.state.newTask} onPressEnter={this.addTask} onChange={this.onChangeNewTask} />
               <Button disabled={!newTask || newTask == ''} onClick={this.addTask} >Add</Button>

@@ -58,7 +58,7 @@
 .task-list {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
   padding: 20px;
   margin: 20px;
 
