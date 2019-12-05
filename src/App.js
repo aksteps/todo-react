@@ -168,25 +168,24 @@ class App extends Component {
 
           </Input.Search>
           <Button onClick={this.loadTasks}><Icon type="reload" /></Button>
+          <Button.Group>
+              <Input style={{ width: 250 }} placeholder="Add a task" allowClear value={this.state.newTask} onPressEnter={this.addTask} onChange={this.onChangeNewTask} />
+              <Button disabled={!newTask || newTask == ''} onClick={this.addTask} >Add</Button>
+          </Button.Group>
           <Row>
-            <Col span={12}>
+            <Col span={12} xs={24}>
             <div class="task-list">
                 <h2>Active</h2>
                 {this.renderTasks(active)}
               </div>
             </Col>
-            <Col span={12}>
+            <Col span={12} xs={24}>
             <div class="task-list completed-tasks">
                 <h2>Completed</h2>
                 {this.renderTasks(completed)}
               </div>
             </Col>
           </Row>
-          
-          <Button.Group>
-              <Input style={{ width: 250 }} placeholder="Add a task" allowClear value={this.state.newTask} onPressEnter={this.addTask} onChange={this.onChangeNewTask} />
-              <Button disabled={!newTask || newTask == ''} onClick={this.addTask} >Add</Button>
-          </Button.Group>
 
         </div>
         
